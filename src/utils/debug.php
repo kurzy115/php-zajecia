@@ -4,7 +4,7 @@ function dump($params)
 {
     echo ('
     <div style ="
-    display:inline:block;
+    display:inline-block;
     background:red;
     border:1px solid gray;
     padding:10px;
