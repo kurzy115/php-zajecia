@@ -1,3 +1,15 @@
 <?php
 
-echo "hello world";
+declare(strict_types=1); 
+
+namespace App;
+
+/* include
+include_once
+require
+require_once
+ */
+
+include_once('./src/utils/debug.php');
+
+dump('test');
