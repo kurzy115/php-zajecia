@@ -15,12 +15,7 @@ include_once('./src/utils/debug.php');
 // $_GET - zapytanie serwera
 // $_POST - wysłanie do serwera
 
-if (!empty($_GET['action'])) {
-    $action = $_GET['action'];
-} else {
-    $action = null;
-}
-
++ $action = $_GET[`action`] ?? null;
 ?>
 
 <!DOCTYPE html>
@@ -47,8 +42,10 @@ if (!empty($_GET['action'])) {
 <article>
 <?php if ($action === 'create') : ?>
     <h3>Nowa notatka</h3>
+    <?php echo htmlentities($action) ?>
     <?php else : ?>
         <h3>Lista notatek</h3>
+        <?php echo htmlentities($action ?? '') ?>
         <?php endif; ?>
     </article>
     </main>
