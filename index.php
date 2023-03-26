@@ -21,10 +21,11 @@ const DEFAULT_ACTION = 'list';
 
  $viewParams = [];
 
-if ($action === 'create') {
-   
-$page = 'create';
-$created = false;
+ switch ($action) {
+    case 'create';
+    $page= 'create';
+    $created = false;
+    
 if (!empty($_POST)) {
     $viewParams = [
         'title' => $_POST['title'],
@@ -34,9 +35,11 @@ if (!empty($_POST)) {
     $created = true;
 }
 $viewParams['created'] = $created;
-} else {
-    $page = 'list';
+break;
+default:
+$page = 'list';
     $viewParams['resultList'] = 'Wyświetlamy listę notatek!';
+    break;
 }
 
  $view = new View();
