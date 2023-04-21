@@ -2,6 +2,21 @@
     <section>
     <div class="message">
         <?php
+        if (!empty($params['error'])) {
+
+            switch ($params['error']) {
+                case 'noteNotFound':
+                    echo 'Notatka nie została znaleziona!';
+                    break;
+                    case 'missingNoteId':
+                        echo 'Niepoprawny identyfikator notatki!';
+                        break;
+            }
+        }
+        ?>
+        </div>
+    <div class="message">
+        <?php
         if (!empty($params['before'])) {
 
             switch ($params['before']) {
@@ -38,5 +53,5 @@
             </tbody>
             </table>
             </div>
-            </section>
+    </section>
             </div>

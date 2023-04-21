@@ -8,6 +8,8 @@ include_once('./src/view.php');
 require_once('./config/config.php');
 require_once('./src/Database.php');
 
+use App\Exception\NotFoundException;
+
 class Controller
 {
     const DEFAULT_ACTION = 'list';
@@ -53,12 +55,27 @@ class Controller
         }
        
         break;
+        case 'show':
+            $page = 'show';
+            $data = $this->getRequestGet();
+            $noteID = (int) $data['id'] ?? null;
+            if (!$noteID) {
+        header('Location: /?error=missingNoteId');
+        exit;
+        }
+         $viewParams = [
+            'note' => $note,
+         ];
+         break;   
+            
+
         default:
         $page = 'list';
            $data = $this->getRequestGet();
            $viewParams = [
             'notes' => $this->database->getNotes(),
-            'before' => $data['before'] ?? null
+            'before' => $data['before'] ?? null,
+            'error' => $data['error'] ?? null,
            ];
             break;
         }
