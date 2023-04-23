@@ -49,7 +49,7 @@ abstract class AbstractController
                 $queryParams[] = urlencode($key) . '=' . urlencode($value);
             }
                 $queryParams = implode('&', $queryParams);
-                $location .= $queryParams;
+                $location .= "?" . $queryParams;
             }
             header("Location: $location");
         }
