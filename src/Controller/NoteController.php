@@ -28,14 +28,14 @@ class NoteController extends AbstractController
     {
         $noteId = (int) $this->request->getParam('id');
         if (!$noteId) {
-            $this->redirect('/', ['erorr' => 'missingNoteId']);
+            $this->redirect('/', ['error' => 'missingNoteId']);
             // header('Location: /?error=missingNoteId');
             // exit;
         }
         try {
             $note = $this->database->getNote($noteId);
         } catch (NotFoundException $e) {
-            $this->redirect('/', ['erorr' => 'noteNotFound']);
+            $this->redirect('/', ['error' => 'noteNotFound']);
             // header('Location: /?error=noteNotFound');
             // exit;
         }
