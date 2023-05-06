@@ -24,11 +24,11 @@
                         echo 'Notatka została utworzona!';
                         break;
                         case 'edited':
-                            echo 'Notatka została zaktualizowana!';
-                            break;
-                            case 'deleted':
-                                echo 'Notatka została usunięta';
-                                break;
+                        echo 'Notatka została zaktualizowana!';
+                        break;
+                        case 'deleted':
+                        echo 'Notatka została usunięta';
+                        break;
                 }
             }
             ?>
