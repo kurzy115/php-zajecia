@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 namespace App;
@@ -55,7 +54,7 @@ class Database
         return $note;
     }
 
-    public function editNote(int $id, array $data)
+    public function editNote(int $id, array $data): void
     {
         try {
             $title = $this->conn->quote($data['title']);
@@ -64,6 +63,16 @@ class Database
             $this->conn->exec($query);
         } catch(Throwable $e) {
             throw new StorageException('Nie udało się edytować notatki.', 400, $e);
+        }
+    }
+
+    public function deleteNote(int $id): void
+    {
+        try {
+            $query = "DELETE FROM notes WHERE id=$id LIMIT 1";
+            $this->conn->exec($query);
+        } catch(Throwable $e) {
+            throw new StorageException('Nie udało się usunąć notatki.', 400, $e);
         }
     }
 

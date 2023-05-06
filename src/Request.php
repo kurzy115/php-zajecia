@@ -39,6 +39,8 @@ class Request
 
     public function isGet(): bool
     {
-        return $this->post['REQUEST_METHOD'] === 'POST';
+        return $this->server['REQUEST_METHOD'] === 'GET';
     }
 }
+
+
